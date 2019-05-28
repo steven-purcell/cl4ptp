@@ -1,9 +1,3 @@
-"""
-file: slack_utility.py
-author: sanad(https://github.com/mohdsanadzakirizvi)
-desc: contains utility functions for the project
-license: MIT
-"""
 from slackclient import SlackClient
 from os import environ
 from time import sleep
