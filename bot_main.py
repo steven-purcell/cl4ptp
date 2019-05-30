@@ -1,5 +1,6 @@
 import slack_utility
 import time
+import bot_functions
 
 def handle_command(slack_api, command, channel):
 	"""
@@ -7,10 +8,17 @@ def handle_command(slack_api, command, channel):
 	else resends clarification
 	"""
 	EXAMPLE_COMMAND = 'do'
+
 	if command.lower().startswith(EXAMPLE_COMMAND) or command.lower().startswith('what'):
 		slack_api.rtm_send_message(channel, 'Yes, code me further to do that!')
+
 	if command.lower().startswith('hi') or command.lower().startswith('hey') or command.lower().startswith('hello') or command.lower().startswith('who are you'):
 		slack_api.rtm_send_message(channel, 'Hey, I\'m your slack bot, how may I help you?')
+
+	if command.lower().startwith('remember'):
+		bot_functions.remember(command, 'steven-test')
+		slack_api.rtm_send_message(channel, 'It\'s in the vault!')
+
 	else:
 		print('Invalid Command: Not Understood')
 		slack_api.rtm_send_message(channel, 'Invalid Command: Not Understood')
