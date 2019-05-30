@@ -24,7 +24,7 @@ def database_connection():
 
 def remember(note: str, user: str):
     conn = database_connection()
-    cur = conn.curser()
+    cur = conn.cursor()
 
     cur.execute('''INSERT INTO remember('remember', 'slack_user') VALUES (%s,%s);'''%(note, user))
     cur.commit()
