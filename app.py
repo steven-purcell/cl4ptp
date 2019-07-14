@@ -11,6 +11,7 @@ slack = pyBot.client
 
 app = Flask(__name__)
 
+print("CLAPTRAP is running.")
 
 def _event_handler(event_type, slack_event):
     """
