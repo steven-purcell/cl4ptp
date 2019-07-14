@@ -5,6 +5,7 @@ A routing layer for the onboarding bot tutorial built using
 """
 import bot
 from flask import Flask, request, make_response, render_template
+import os
 
 pyBot = bot.Bot()
 slack = pyBot.client
