@@ -58,20 +58,20 @@ def hears():
     # token in a request and check for this token in the response our endpoint
     # sends back.
     #       For more info: https://api.slack.com/events/url_verification
-    # if "challenge" in slack_event:
-    #     return make_response(slack_event["challenge"], 200, {"content_type":
-    #                                                          "application/json"
-    #                                                          })
+    if "challenge" in slack_event:
+        return make_response(slack_event["challenge"], 200, {"content_type":
+                                                             "application/json"
+                                                             })
 
-    # # ============ Slack Token Verification =========== #
-    # # We can verify the request is coming from Slack by checking that the
-    # # verification token in the request matches our app's settings
-    # if pyBot.verification != slack_event.get("token"):
-    #     message = "Invalid Slack verification token: %s \npyBot has: \
-    #                %s\n\n" % (slack_event["token"], pyBot.verification)
-    #     # By adding "X-Slack-No-Retry" : 1 to our response headers, we turn off
-    #     # Slack's automatic retries during development.
-    #     make_response(message, 403, {"X-Slack-No-Retry": 1})
+    # ============ Slack Token Verification =========== #
+    # We can verify the request is coming from Slack by checking that the
+    # verification token in the request matches our app's settings
+    if pyBot.verification != slack_event.get("token"):
+        message = "Invalid Slack verification token: %s \npyBot has: \
+                   %s\n\n" % (slack_event["token"], pyBot.verification)
+        # By adding "X-Slack-No-Retry" : 1 to our response headers, we turn off
+        # Slack's automatic retries during development.
+        make_response(message, 403, {"X-Slack-No-Retry": 1})
 
     # ====== Process Incoming Events from Slack ======= #
     # If the incoming request is an Event we've subscribed to
