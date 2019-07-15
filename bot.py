@@ -13,10 +13,11 @@ CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 VERIFICATION_TOKEN = os.environ.get('VERIFICATION_TOKEN')
 SLACK_BOT_TOKEN = os.environ.get('SLACK_BOT_TOKEN')
 
-print(CLIENT_ID)
-print(CLIENT_SECRET)
-print(VERIFICATION_TOKEN)
-print(SLACK_BOT_TOKEN)
+# ENV VAR test statement
+# print(CLIENT_ID)
+# print(CLIENT_SECRET)
+# print(VERIFICATION_TOKEN)
+# print(SLACK_BOT_TOKEN)
 
 # To remember which teams have authorized your app and what tokens are
 # associated with each team, we can store this information in memory on
@@ -64,6 +65,5 @@ class Bot(object):
             
 
         self.client.api_call("chat.postMessage",
-                            token=SLACK_BOT_TOKEN,
                             channel=channel,
                             text=str(joke))
