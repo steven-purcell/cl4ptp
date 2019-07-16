@@ -12,16 +12,16 @@ slack = pyBot.client
 
 app = Flask(__name__)
 
-print("CLAPTRAP is running.")
+# print("CLAPTRAP is running.")
 CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 VERIFICATION_TOKEN = os.environ.get('VERIFICATION_TOKEN')
 SLACK_BOT_TOKEN = os.environ.get('SLACK_BOT_TOKEN')
 
-print(CLIENT_ID)
-print(CLIENT_SECRET)
-print(VERIFICATION_TOKEN)
-print(SLACK_BOT_TOKEN)
+# print(CLIENT_ID)
+# print(CLIENT_SECRET)
+# print(VERIFICATION_TOKEN)
+# print(SLACK_BOT_TOKEN)
 
 def _event_handler(event_type, slack_event):
     """
@@ -97,4 +97,4 @@ def hears():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
