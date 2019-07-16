@@ -49,6 +49,10 @@ class Bot(object):
 
             self.client.chat_postMessage(channel=channel,
                                     text=str(joke))
+                                    
+        elif "help" in str(message).lower():
+            self.client.chat_postMessage(channel=channel,
+                                    text="Try asking me to tell a dad joke! More functionality is being developed.")
 
         else:
             self.client.chat_postMessage(channel=channel,
